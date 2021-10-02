@@ -1,13 +1,14 @@
-.set ALIGN,    1<<0 
-.set MEMINFO,    1<<1
+.set ALIGN,    1<<0
+.set MEMINFO,  1<<1 
 .set FLAGS,    ALIGN | MEMINFO
 .set MAGIC,    0x1BADB002 /*number that lets bootloader find header*/
-.set CHECKSUM,    -(MAGIC + FLAGS)
+.set CHECKSUM, -(MAGIC + FLAGS)
 
 /* multiboot header */
 .section .multiboot
 .align 4
 .long MAGIC
+.long FLAGS
 .long CHECKSUM
 
 .section .bss
